@@ -1,13 +1,16 @@
 package edu.depaul.RentalTests;
 
-import junit.framework.TestCase;
+//import junit.framework.TestCase;
+
 import edu.depaul.shop.data.VideoObj;
+import junit.framework.TestCase;
 
 // TODO:  complete the tests
 public class VideoTEST extends TestCase {
   public VideoTEST(String name) {
     super(name);
   }
+
   public void testEquals() { 
     // TODO  
 	  String title = "A";

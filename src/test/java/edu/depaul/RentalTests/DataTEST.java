@@ -1,8 +1,12 @@
 package edu.depaul.RentalTests;
 
-import junit.framework.TestCase;
+
 import edu.depaul.shop.data.Data;
 import edu.depaul.shop.data.Video;
+import junit.framework.TestCase;
+
+import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertSame;
 
 // TODO:  complete the tests
 public class DataTEST extends TestCase {
