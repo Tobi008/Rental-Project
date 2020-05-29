@@ -6,7 +6,7 @@ import shop.data.VideoObj;
  * Implementation of Video interface.
  * @see Data
  */
-final class VideoObj implements Video {
+public final class VideoObj implements Video {
   private final String _title;
   private final int    _year;
   private final String _director;
@@ -16,7 +16,7 @@ final class VideoObj implements Video {
    * Title and director are "trimmed" to remove leading and final space.
    * @throws IllegalArgumentException if object invariant violated.
    */
-  VideoObj(String title, int year, String director) {
+  public VideoObj(String title, int year, String director) {
     _title = title;
     _director = director;
     _year = year;

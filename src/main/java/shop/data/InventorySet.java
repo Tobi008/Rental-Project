@@ -16,11 +16,11 @@ import shop.command.CommandHistoryFactory;
  * Implementation of Inventory interface.
  * @see Data
  */
-final class InventorySet implements Inventory {
+public final class InventorySet implements Inventory {
   private Map<Video,Record> _data;
   private final CommandHistory _history;
 
-  InventorySet() {
+  public InventorySet() {
     // TODO  
     _data = new HashMap<Video,Record>();
     _history = shop.command.CommandHistoryFactory.newCommandHistory();
@@ -78,7 +78,7 @@ final class InventorySet implements Inventory {
    * @return A copy of the previous record for this video (if any)
    * @throws IllegalArgumentException if video null or change is zero
    */
-  Record addNumOwned(Video video, int change) {
+  public Record addNumOwned(Video video, int change) {
     if (video == null || change == 0)
       throw new IllegalArgumentException();
     
@@ -104,7 +104,7 @@ final class InventorySet implements Inventory {
    * @throws IllegalArgumentException if video has no record or numOut
    * equals numOwned.
    */
-  Record checkOut(Video video) {
+  public Record checkOut(Video video) {
     // TODO  
 	  RecordObj vid = (RecordObj) _data.get(video);
 	  if(vid == null || vid.numOwned == vid.numOut || !this._data.containsKey(video)) {
@@ -122,7 +122,7 @@ final class InventorySet implements Inventory {
    * @throws IllegalArgumentException if video has no record or numOut
    * non-positive.
    */
-  Record checkIn(Video video) {
+  public Record checkIn(Video video) {
     // TODO  
 	  RecordObj vid = (RecordObj) _data.get(video);
 	  if(vid == null || vid.numOwned < 1 || vid.numOut <= 0) {
@@ -137,7 +137,7 @@ final class InventorySet implements Inventory {
    * Remove all records from the inventory.
    * @return A copy of the previous inventory as a Map
    */
-  Map clear() {
+  public Map clear() {
     // TODO  
 	  Map<Video,Record> val = _data;
 	  _data = new HashMap<Video,Record>();
