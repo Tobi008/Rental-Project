@@ -5,6 +5,9 @@ import edu.depaul.shop.data.InventorySet;
 import edu.depaul.shop.data.Record;
 import edu.depaul.shop.data.Video;
 import edu.depaul.shop.data.VideoObj;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.when;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -143,6 +146,7 @@ public class InventoryTEST extends TestCase {
 
   public void testGet() {
     // TODO
+	  InventorySet MockInventory = mock(InventorySet.class);
 	  s.addNumOwned(v1, 1);
 		Record r1 = s.get(v1);
 		Record r2 = s.get(v1);

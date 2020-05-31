@@ -4,15 +4,20 @@ package edu.depaul.RentalTests;
 import edu.depaul.shop.data.Data;
 import edu.depaul.shop.data.Video;
 import junit.framework.TestCase;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.runners.Parameterized;
 
-import static junit.framework.Assert.assertEquals;
-import static junit.framework.Assert.assertSame;
+
+import java.util.stream.Stream;
+
+import static junit.framework.Assert.*;
 
 // TODO:  complete the tests
-public class DataTEST extends TestCase {
-  public DataTEST(String name) {
-    super(name);
-  }
+public class DataTEST {
+
+  @Test
+  @DisplayName("")
   public void testConstructorAndAttributes() {
     String title1 = "XX";
     String director1 = "XY";
@@ -29,7 +34,7 @@ public class DataTEST extends TestCase {
     assertEquals(title1, v2.title());
     assertEquals(director1, v2.director());
   }
-
+  @Test
   public void testConstructorExceptionYear() {
     try {
       Data.newVideo("X", 1800, "Y");
@@ -46,7 +51,7 @@ public class DataTEST extends TestCase {
       fail();
     }
   }  
-
+  @Test
   public void testConstructorExceptionTitle() {
     try {
       Data.newVideo(null, 2002, "Y");
@@ -61,9 +66,23 @@ public class DataTEST extends TestCase {
       fail();
     } catch (IllegalArgumentException e) { }
   }
-
+  @Test
   public void testConstructorExceptionDirector() {
-    // TODO  
-  }
+    // TODO
+      try {
+        Data.newVideo("X", 2002, null);
+        fail();
+      } catch (IllegalArgumentException e) { }
+      try {
+        Data.newVideo("X", 2002, "");
+        fail();
+      } catch (IllegalArgumentException e) { }
+      try {
+        Data.newVideo("X", 2002, " ");
+        fail();
+      } catch (IllegalArgumentException e) { }
+
+    }
+
 
 }
